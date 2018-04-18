@@ -14,6 +14,9 @@ app.get('/intern', function(req, res){
 app.get('/register', function(req, res){
     res.sendFile(__dirname + '/register.html');
 });
+app.get('/done', function(req, res){
+    res.sendFile(__dirname + '/done.html');
+});
 
 /*//Gets username everytime a user logs in.
 //Emits chat message to all connected users.

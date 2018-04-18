@@ -44,8 +44,8 @@ $.ajax({
 
 function move(e)
 {
-        id="Hi"+e.target.id[2];
-        id2="p1"+e.target.id[2];
+        id="Hi"+e.target.id.substring(2);
+        id2="p1"+e.target.id.substring(2);
         var company=document.getElementById(''+id).innerHTML;
         var position=document.getElementById(''+id2).innerHTML;
         localStorage["Company"] = company;
