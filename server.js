@@ -18,8 +18,6 @@ app.get('/done', function(req, res){
     res.sendFile(__dirname + '/done.html');
 });
 
-//Gets username everytime a user logs in.
-//Emits chat message to all connected users.
 io.on('connection', function(socket){
 	socket.on('message', function(msg){
 		io.emit('message', msg);
