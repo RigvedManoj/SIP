@@ -8,7 +8,7 @@ A registration portal
 
 3. Run server.js.
 
-4. /startups page is for company registrations.
+4. /intern page is for company registrations.
 
 5. Dashboard page shows all companies.
 
