@@ -18,36 +18,34 @@ app.get('/done', function(req, res){
     res.sendFile(__dirname + '/done.html');
 });
 
-/*//Gets username everytime a user logs in.
+//Gets username everytime a user logs in.
 //Emits chat message to all connected users.
 io.on('connection', function(socket){
-    socket.on("join", function(name){
-        console.log(name);
-    });
-    socket.on('chat message', function(msg){
-        io.emit('chat message', msg);
-    });
-});*/
+	socket.on('message', function(msg){
+		io.emit('message', msg);
+	});
+});
 
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
+
 app.post("/startups", function(req, res) {
 
     var data= {
-        Company: req.body.company,
-        Position: req.body.position,
-        Place: req.body.place,
-        Stipend: req.body.stipend,
-        Vacancies: req.body.vacancies,
+        Company: req.body.Company,
+        Position: req.body.Position,
+        Place: req.body.Place,
+        Stipend: req.body.Stipend,
+        Vacancies: req.body.Vacancies,
     };
     console.log(data);
     //mysql connection setup
     var connection = mysql.createConnection({
         host : "localhost",
         user : "root",
-        password : "AthlonY2",
+        password : "",
         database : "SIP",
         multipleStatements: true
     });
@@ -78,7 +76,7 @@ app.post("/submit", function(req, res) {
     var connection = mysql.createConnection({
         host : "localhost",
         user : "root",
-        password : "AthlonY2",
+        password : "",
         database : "SIP",
         multipleStatements: true
     });
@@ -99,7 +97,7 @@ app.post("/dashboard", function(req, res) {
     var con = mysql.createConnection({
       host: "localhost",
       user: "root",
-      password: "AthlonY2",
+      password: "",
       database: "SIP"
   });
 
@@ -115,8 +113,7 @@ app.post("/dashboard", function(req, res) {
 
 });
 
-//console.log(res); 
-app.listen(3000, function () {
-    console.log('listening');
-    'use strict';
-})
+//Listening on 3000
+http.listen(3000, function(){
+	console.log('listening on *:3000');
+});

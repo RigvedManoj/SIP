@@ -1,11 +1,13 @@
 function run()
 {
+	var socket = io();
 	var data = {};
-	data.company=document.getElementById('Company').value;
-	data.position=document.getElementById('Position').value;
-	data.place=document.getElementById('Place').value;
-	data.stipend=document.getElementById('Stipend').value;
-	data.vacancies=document.getElementById('Vacancies').value;
+	data.Company=document.getElementById('Company').value;
+	data.Position=document.getElementById('Position').value;
+	data.Place=document.getElementById('Place').value;
+	data.Stipend=document.getElementById('Stipend').value;
+	data.Vacancies=document.getElementById('Vacancies').value;
+	socket.emit('message',data);
 	$.ajax({
 			type: 'POST',
 			data: JSON.stringify(data),

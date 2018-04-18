@@ -1,7 +1,18 @@
 
 window.onload = function() {
- document.getElementById("Company").value = localStorage["Company"];
- document.getElementById("Position").value = localStorage["Position"];
+	var url = window.location.href;
+	var params = url.split('?')[1].split('&');
+	console.log(params);
+	var temp = params[0].split('%20');
+	params[0]="";
+	for(var i=0;i<temp.length;i++)
+	params[0]+=temp[i];
+	temp=params[1].split('%20');
+	params[1]="";
+	for(var i=0;i<temp.length;i++)
+	params[1]+=temp[i]+" ";
+ document.getElementById("Company").value = params[0];
+ document.getElementById("Position").value =params[1];
 };
 function run()
 {
@@ -24,5 +35,4 @@ function run()
             console.log(JSON.stringify(data));
             }
     });
-
 }
